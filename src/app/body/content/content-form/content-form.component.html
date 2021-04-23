@@ -1,0 +1,77 @@
+<form [formGroup]="messageForm">
+    
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Nome Completo</label>
+      <input type="text" class="form-control" maxlength="35" placeholder="Name" formControlName="name" autocomplete="chrome-off">
+
+      <div class="form-error" *ngIf="name?.invalid && enableValidator">
+
+        <div *ngIf="name?.errors?.required">
+          Nome obrigatório.*
+        </div>
+
+        <div *ngIf="name?.errors?.minlength">
+          Digite pelo menos 3 caracteres.*
+        </div>
+
+        <div *ngIf="name?.errors?.maxlength">
+          Limite de caracteres 35.*
+        </div>
+        
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+        <label for="exampleFormControlInput1">Email</label>
+        <input type="email" class="form-control" placeholder="Nome@exemplo.com" formControlName="email" autocomplete="chrome-off">
+
+        <div class="form-error" *ngIf="email?.invalid && enableValidator">
+
+          <div *ngIf="email?.errors?.required">
+            Email obrigatório.*
+          </div>  
+          <div *ngIf="email?.errors?.email">
+            Utilize o formato nome@exemplo.com.*
+          </div>        
+          
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
+        <textarea  class="form-control" rows="3" maxlength="140" placeholder="Hello World!" formControlName="message"></textarea>
+
+        <div class="form-error" *ngIf="message?.invalid && enableValidator">
+
+          <div *ngIf="message?.errors?.required">
+            Mensagem obrigatório.*
+          </div>  
+
+          <div *ngIf="message?.errors?.minlength">
+            Digite pelo menos 10 caracteres.*
+          </div>    
+
+          <div *ngIf="message?.errors?.maxlength">
+            Limite de caracteres 140.*
+          </div>    
+          
+        </div>
+        
+      </div>
+
+
+
+      <div class="form-group">
+        <button (click)='PostForm($event)' type="submit" >
+
+            <dcv-text-shadow  text="Enviar >" > </dcv-text-shadow>
+
+        </button>
+      </div>
+    
+    
+</form>
+

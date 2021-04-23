@@ -1,0 +1,44 @@
+dcv-photo{
+    position: fixed;
+    display: block;
+}
+
+dcv-content:before{
+    
+    
+    background: #373b40;
+    position: fixed;
+    
+
+    content: '';
+
+    top: 0%;
+
+    max-width: 100vw;
+    width: 100%;
+
+    height: 50px;
+    
+    z-index: 99;
+
+
+    
+}
+
+dcv-content{
+    background-color: #373b40;
+}
+
+
+@media only screen and (max-width:992px) {
+
+    dcv-photo{
+        position: relative;
+        
+    }
+
+    dcv-content::before{
+        content: none;
+    }
+    
+}
